@@ -42,7 +42,7 @@ const DashboardPage = () => {
   const [showModal, setShowModal] = useState(false);
   const handleCloseModal = () => {
     setShowModal(false);
-    setUpdateIndex(null);
+    updateIndexx(null);
     setMenu({
       nama: "",
       kategori: "",
@@ -81,10 +81,10 @@ const SubmitData = (event) => {
   resetForm();
 };
 
-const [updateIndex, setUpdateIndex] = useState(null);
+const [updateIndex, updateIndexx] = useState(null);
 
 const handleUpdate = (index) => {
-  setUpdateIndex(index);
+  updateIndexx(index);
   setMenu({ ...menuData[index] });
   setShowModal(true);
 };
@@ -105,7 +105,7 @@ const updateData = (event) => {
 
   resetForm();
   setShow(false);
-  setUpdateIndex(null);
+  updateIndexx(null);
 };
 
 const deleteData = (index) => {
@@ -226,8 +226,7 @@ return (
               Batal
             </Button>
             <Button
-              variant="primary"
-              type="submit"
+              variant="primary" type="submit"
               onClick={updateIndex !== null ? updateData : SubmitData}
             >
               <FaSave /> Simpan
