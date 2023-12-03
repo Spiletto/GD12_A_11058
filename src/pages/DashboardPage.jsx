@@ -3,14 +3,15 @@ import { useNavigate } from "react-router-dom";
 import {Container, Row, Col, Card, Button, Modal, Form } from "react-bootstrap";
 import { toast } from "sonner";
 
+import { FaPlusSquare } from "react-icons/fa";
+import { FaSave } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
+
 import imgProfile from "../assets/images/profile.jpg"
 import imgAppetizer from "../assets/images/appetizer.jpg";
 import imgMaincourses from "../assets/images/MainCourses.jpg";
 import imgDessert from "../assets/images/desserts.jpg";
 
-import { FaPlusSquare } from "react-icons/fa";
-import { FaSave } from "react-icons/fa";
-import { FaTrashAlt } from "react-icons/fa";
 import { BsPencilSquare } from "react-icons/bs";
 
 const DashboardPage = () => {
@@ -60,7 +61,7 @@ const [menu, setMenu] = useState({
   deskripsi: "",
 });
 
-const handleChange = (event) => {
+const changeData = (event) => {
   const { name, value } = event.target;
   setMenu({ ...menu, [name]: value });
 };
@@ -179,7 +180,7 @@ return (
                 placeholder="Masukkan nama makanan"
                 name="nama"
                 value={menu.nama}
-                onChange={handleChange}
+                onChange={changeData}
               />
   
               <br />
@@ -188,11 +189,11 @@ return (
               <Form.Select
                 value={menu.kategori}
                 name="kategori"
-                onChange={handleChange}
+                onChange={changeData}
               >
                 <option value={"Kategori"}>Pilih Kategori</option>
-                <option value="Appetizers">Appetizers</option>
                 <option value="Main Courses">Main Courses</option>
+                <option value="Appetizers">Appetizers</option>
                 <option value="Desserts">Desserts</option>
               </Form.Select>
   
@@ -204,7 +205,7 @@ return (
                 placeholder={""}
                 name="harga"
                 value={menu.harga}
-                onChange={handleChange}
+                onChange={changeData}
               />
   
               <br />
@@ -215,7 +216,7 @@ return (
                 placeholder={""}
                 name="deskripsi"
                 value={menu.deskripsi}
-                onChange={handleChange}
+                onChange={changeData}
               />
             </Form>
           </Modal.Body>
